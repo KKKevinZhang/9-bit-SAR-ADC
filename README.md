@@ -181,6 +181,7 @@ The ADC was successfully integrated into a collaborative **7-ADC top chip**.
 
 <p align="center">
   <img src="images/top_level_chip.png">
+
   <img src="images/density_verification.png">
 </p>
 
