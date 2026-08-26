@@ -25,7 +25,7 @@
 
 This project implements a **9-bit differential SAR ADC** designed and verified in TSMC 65nm using Cadence Virtuoso. The ADC utilizes a charge-redistribution CDAC architecture, a dynamic comparator engineered for minimal systematic offset, and a fully synthesized digital SAR controller. 
 
-The design was completed as part of a multi-group tape-out project (ECE 266). It was successfully integrated into a **7-ADC top-level chip**, where our team contributed to the global power delivery network, decoupled capacitor (DCAP) placement, and a custom 30-MUX digital output stage.
+The design was completed as part of a multi-group tape-out project (ECE 266). It was successfully integrated into a **7-ADC top-level chip**, where our team contributed to the pad ring layout, decoupled capacitor (DCAP) placement, and a custom 30-MUX digital output stage.
 
 ---
 
