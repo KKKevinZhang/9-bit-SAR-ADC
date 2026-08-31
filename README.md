@@ -37,7 +37,6 @@ The design was completed as part of a multi-group tape-out project (ECE 266). It
 | Technology | TSMC 65nm |
 | Supply Voltage | 1 V |
 | SNDR (post-dummy fill, extracted) | **49.93 dB** |
-| SNR (post-dummy fill, extracted) | **49.71 dB** |
 | Comparator Offset (MC Mean) | **-2.33 mV** |
 | Comparator Propagation Delay | **200 ps (TT) / 158 ps (FF) / 273 ps (SS)** |
 | CDAC Capacitor Mismatch | **< ±0.2%** |
