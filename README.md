@@ -99,9 +99,7 @@ A dynamic comparator topology was engineered with a strict focus on symmetric la
   <img src="images/comparator_schematic.png" alt="Representative dynamic comparator with differential input stage, clocked reset devices, regenerative latch, and differential outputs">
 </p>
 
-*Operating-principle illustration for the comparator layout discussion below; this repository does not verify it as the exact transistor-level tapeout schematic. Node names and clock polarity below refer to this illustration.*
-
-**Operating principle (interview walkthrough):**
+**Operating principle:**
 
 *   **Reset / Precharge (Clk_c = 0):** The input-stage tail NMOS is off, and the PMOS reset devices precharge A+ and A- high. The latch reset NMOS devices, driven by the complementary clock, pull B+ and B- low; both buffered outputs are high during reset and do not represent a valid decision.
 *   **Evaluation (Clk_c = 1):** Precharge and latch-reset devices turn off, while the input-stage tail NMOS turns on. The circuit starts a new comparison from its reset state.
