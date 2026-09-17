@@ -93,6 +93,24 @@ The CDAC uses a **binary-weighted capacitor array** utilizing MOM capacitors.
 
 A dynamic comparator topology was engineered with a strict focus on symmetric layout to minimize systematic mismatch.
 
+**Simplified / representative dynamic-comparator schematic:**
+
+<p align="center">
+  <img src="images/comparator_schematic.png" alt="Representative dynamic comparator with differential input stage, clocked reset devices, regenerative latch, and differential outputs">
+</p>
+
+*Operating-principle illustration for the comparator layout discussion below; this repository does not verify it as the exact transistor-level tapeout schematic. Node names and clock polarity below refer to this illustration.*
+
+**Operating principle (interview walkthrough):**
+
+*   **Reset / Precharge (Clk_c = 0):** The input-stage tail NMOS is off, and the PMOS reset devices precharge A+ and A- high. The latch reset NMOS devices, driven by the complementary clock, pull B+ and B- low; both buffered outputs are high during reset and do not represent a valid decision.
+*   **Evaluation (Clk_c = 1):** Precharge and latch-reset devices turn off, while the input-stage tail NMOS turns on. The circuit starts a new comparison from its reset state.
+*   **Differential Input Stage (left):** Vin+ and Vin- control the input-pair currents. Their difference produces unequal discharge rates at A- and A+, creating the initial differential signal that drives the latch.
+*   **Regenerative Positive-Feedback Latch (right):** The A nodes control the latch's PMOS input devices. Cross-coupled transistors reinforce the resulting imbalance at B+ and B-, rapidly resolving it into opposite logic levels.
+*   **Differential Outputs:** The output inverters buffer B- and B+ as Vo+ and Vo-. After regeneration, these complementary outputs encode the comparison result for capture by the SAR logic before the next reset.
+
+**Connection to layout:** The ABBA/BAAB interdigitation and edge dummy devices described below target systematic input-pair mismatch, which can bias the decision and contribute to input-referred offset. Balanced routing and parasitic loading help avoid unequal node dynamics that can affect both offset and propagation delay. The extracted Monte Carlo results below characterize the implemented comparator; they are not simulation results for this representative drawing, nor do they isolate the benefit of any single layout technique.
+
 **Layout techniques:**
 *   **Interdigitation:** Adopted **ABBA and BAAB patterns** for the differential input pair (W=2µm, fingers=2, m=4) to cancel linear process gradients.
 *   **Dummy Devices:** Identically sized dummy devices (W=2µm) were placed on the outer edges of the active fingers to maintain identical physical stress environments.
