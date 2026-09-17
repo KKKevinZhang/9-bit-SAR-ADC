@@ -107,8 +107,6 @@ A dynamic comparator topology was engineered with a strict focus on symmetric la
 *   **Regenerative Positive-Feedback Latch (right):** The A nodes control the latch's PMOS input devices. Cross-coupled transistors reinforce the resulting imbalance at B+ and B-, rapidly resolving it into opposite logic levels.
 *   **Differential Outputs:** The output inverters buffer B- and B+ as Vo+ and Vo-. After regeneration, these complementary outputs encode the comparison result for capture by the SAR logic before the next reset.
 
-**Connection to layout:** The ABBA/BAAB interdigitation and edge dummy devices described below target systematic input-pair mismatch, which can bias the decision and contribute to input-referred offset. Balanced routing and parasitic loading help avoid unequal node dynamics that can affect both offset and propagation delay. The extracted Monte Carlo results below characterize the implemented comparator; they are not simulation results for this representative drawing, nor do they isolate the benefit of any single layout technique.
-
 **Layout techniques:**
 *   **Interdigitation:** Adopted **ABBA and BAAB patterns** for the differential input pair (W=2µm, fingers=2, m=4) to cancel linear process gradients.
 *   **Dummy Devices:** Identically sized dummy devices (W=2µm) were placed on the outer edges of the active fingers to maintain identical physical stress environments.
